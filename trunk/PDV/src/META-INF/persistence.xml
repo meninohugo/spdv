@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence">
+    
+    <persistence-unit name="pdv" transaction-type="RESOURCE_LOCAL">
+    	<properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/spdv" />
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+            <property name="hibernate.connection.password" value="21011990" />
+            <property name="hibernate.connection.username" value="adriano" />           
+        </properties>        
+	</persistence-unit>	
+	
+</persistence>
