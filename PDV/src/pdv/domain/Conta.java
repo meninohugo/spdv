@@ -30,7 +30,7 @@ public class Conta implements Serializable{
 	private int id;
 	
 	@Column
-	private double valor;
+	private double debito;
 	
 	@ManyToMany
 	@JoinTable(name="ContaPossuiProduto",
@@ -50,11 +50,11 @@ public class Conta implements Serializable{
 	}
 	
 	public double getValor() {
-		return valor;
+		return debito;
 	}
 	
 	public void setValor(double valor) {
-		this.valor = valor;
+		this.debito = valor;
 	}
 	
 	public List<Produto> getProdutos() {
