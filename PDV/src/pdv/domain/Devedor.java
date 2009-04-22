@@ -1,6 +1,7 @@
 package pdv.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -38,8 +39,10 @@ public class Devedor implements Serializable{
 	@JoinTable(name="TelefoneDevedor",
 			joinColumns=@JoinColumn(name="idDevedor",referencedColumnName="idDevedor"))
 	@IndexColumn(name="telefone",base=1)
-	private List<String> telefones;
-		
+	private List<String> telefones = new ArrayList<String>();
+	
+	private Conta conta;
+	
 	public int getId() {
 		return id;
 	}
