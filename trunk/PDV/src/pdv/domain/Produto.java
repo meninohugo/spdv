@@ -3,12 +3,15 @@ package pdv.domain;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Produto implements Serializable{
@@ -45,6 +48,10 @@ public class Produto implements Serializable{
 			joinColumns=@JoinColumn(name="idProduto",referencedColumnName="idProduto"),
 			inverseJoinColumns=@JoinColumn(name="idConta",referencedColumnName="idConta"))
 	private List<Conta> contas = new ArrayList<Conta>();	
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="idFabricante",referencedColumnName="idFabricante")
+	private Fabricante fabricante;
 	
 	public int getId() {
 		return id;
@@ -100,8 +107,16 @@ public class Produto implements Serializable{
 
 	public void setContas(List<Conta> contas) {
 		this.contas = contas;
-	}
+	}	
 	
+	public Fabricante getFabricante() {
+		return fabricante;
+	}
+
+	public void setFabricante(Fabricante fabricante) {
+		this.fabricante = fabricante;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
