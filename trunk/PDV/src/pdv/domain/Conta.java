@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 /**
  * 
@@ -37,6 +38,9 @@ public class Conta implements Serializable{
 			inverseJoinColumns=@JoinColumn(name="idProduto",referencedColumnName="idProduto"))
 	private List<Produto> produtos;
 	
+	@OneToOne(mappedBy="conta")
+	private Devedor devedor;
+	
 	public int getId() {
 		return id;
 	}
@@ -59,6 +63,14 @@ public class Conta implements Serializable{
 	
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
+	}
+
+	public Devedor getDevedor() {
+		return devedor;
+	}
+
+	public void setDevedor(Devedor devedor) {
+		this.devedor = devedor;
 	}
 
 	@Override
