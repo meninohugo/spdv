@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CollectionOfElements;
 import org.hibernate.annotations.IndexColumn;
@@ -41,6 +42,8 @@ public class Devedor implements Serializable{
 	@IndexColumn(name="telefone",base=1)
 	private List<String> telefones = new ArrayList<String>();
 	
+	@OneToOne
+	@JoinColumn(name="idConta")
 	private Conta conta;
 	
 	public int getId() {
@@ -73,6 +76,14 @@ public class Devedor implements Serializable{
 	
 	public void setTelefones(List<String> telefones) {
 		this.telefones = telefones;
+	}	
+
+	public Conta getConta() {
+		return conta;
+	}
+
+	public void setConta(Conta conta) {
+		this.conta = conta;
 	}
 
 	@Override
