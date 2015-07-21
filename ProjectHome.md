@@ -1,0 +1,1 @@
+Sistema elaborado em vista de um trabalho acadêmico da disciplina da banco de dados.
